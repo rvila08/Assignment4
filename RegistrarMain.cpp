@@ -19,7 +19,7 @@ int main(int argc, char const *argv[]) {
   while(r->allWindowsEmpty()){ //Add check to see if windows are empty too
     r->timeStep();
   }
-  statsTracker *s = new statsTracker(r->completedStudents,r->idleArr,r->totalStudents);
+  statsTracker *s = new statsTracker(r->completedStudents,r->idleArr,r->totalStudents,r->windowsOpen);
   s->findMean();
   s->findMax();
   cout << "The median student wait time: " << s->findMedian() << endl;

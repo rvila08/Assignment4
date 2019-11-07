@@ -5,10 +5,11 @@ using namespace std;
 
 //Constructor
 //Tracking the idle data, student data, and size of the array
-statsTracker::statsTracker(int* i2,int* i,int size){
+statsTracker::statsTracker(int* i2,int* i,int size, int windowSize){
   idleData = i;
   studentData = i2;
   arrSize = size;
+  windowS = windowSize;
 }
 
 //Destructor
@@ -30,7 +31,7 @@ double statsTracker::findMean(){
 //Method to find the idle median of the array
 int statsTracker::findIdleMax(){
   int max = 0;
-  for(int i=0;i<arrSize;++i){
+  for(int i=0;i<windowS;++i){
     if(idleData[i] > max){
       max = idleData[i];
     }
@@ -66,10 +67,10 @@ int statsTracker::over10(){
 //Method to find the idle mean of the array
 double statsTracker::findIdleMean(){
   int sum = 0;
-  for(int i=0;i<arrSize;++i){
+  for(int i=0;i<windowS;++i){
     sum+= idleData[i];
   }
-  double mean = (double)sum/(double)arrSize;
+  double mean = (double)sum/(double)windowS;
   cout << "The mean window idle time: " << mean << endl;
   return mean;
 }
@@ -77,7 +78,7 @@ double statsTracker::findIdleMean(){
 //Method to find how many windows are idle for over 5 minutes
 int statsTracker::idleOver5(){
   int over5 = 0;
-  for(int i=0;i<arrSize;++i){
+  for(int i=0;i<windowS;++i){
     if(idleData[i] > 5){
       over5++;
     }

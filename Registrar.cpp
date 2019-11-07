@@ -111,7 +111,7 @@ LinkListQueue<Student*>* Registrar::getQueue(){
 void Registrar::storeData(Student *s, Window *&w){
   idleArr[studentCounter] = w->idleTime;
   w->idleTime = 0;
-  completedStudents[studentCounter++] = s->windowTime;
+  completedStudents[studentCounter++] = s->timeLeftWindow - s->timeArrived ;
 }
 
 bool Registrar::allWindowsEmpty(){

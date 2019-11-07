@@ -25,9 +25,9 @@ class Registrar{
     int *completedStudents;
     int *idleArr;
     int totalStudents;
+    unsigned int windowsOpen;
   private:
     unsigned int studentCounter = 0;
-    unsigned int windowsOpen;
     unsigned int arrivalTime;
     unsigned int currTime;
     Window **windowArr;

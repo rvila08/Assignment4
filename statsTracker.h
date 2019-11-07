@@ -5,7 +5,7 @@
 
 class statsTracker{
 public:
-  statsTracker(int* i2,int* i,int size);
+  statsTracker(int* i2,int* i,int size, int windowSize);
   ~statsTracker();
   double findMean();
   int findIdleMax();
@@ -15,6 +15,7 @@ public:
   int idleOver5();
   int findMedian();
 private:
+  int windowS;
   int* idleData;
   int* studentData;
   int arrSize;
